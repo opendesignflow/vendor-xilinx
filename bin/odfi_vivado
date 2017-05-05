@@ -1,0 +1,13 @@
+#!/bin/bash
+
+## Check vivado has been sourced
+if [[ -z `which vivado` ]]
+then
+    
+    echo "The vivado command is not available, have you sourced/installed Vivado ?"
+    exit -1
+    
+fi
+
+dir="$(dirname "$(readlink -f ${BASH_SOURCE[0]})")"
+vivado -source $dir/../tcl/vivado/vivado_bootstrap.tcl
