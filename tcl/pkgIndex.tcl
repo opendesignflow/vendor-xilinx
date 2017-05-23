@@ -18,6 +18,12 @@ package ifneeded odfi::implementation::xilinx::vivado 1.0.0 "
     #upvar $dir dir
     puts \"Hello $dir\"
     array set env {ITCL_LIBRARY $dir/vivado}
-    load $dir/vivado/libitcl3.4.so Itcl
+    load $dir/external/libitcl3.4.so Itcl
     source [file join $dir vivado vivado-1.0.0.tm]
+"
+
+package ifneeded odfi::vendor::xilinx::ise 1.0.0 "
+	array set env {ITCL_LIBRARY $dir/external}
+	#load $dir/external/itcl34.dll Itcl
+	source [file join $dir ise ise-1.0.0.tm]
 "
